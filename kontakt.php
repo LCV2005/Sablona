@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Kontakt';
 $pageStyles = ['css/banner.css', 'css/form.css'];
-include 'header.php';
+require_once __DIR__ . '/header.php';
 ?>
 
   <main>
@@ -41,4 +41,4 @@ include 'header.php';
     </section>
   </main>
   <script src="js/menu.js"></script>
-<?php include 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

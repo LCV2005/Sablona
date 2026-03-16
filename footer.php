@@ -23,7 +23,9 @@
     </div>
   </div>
   <div class="row">
-    Created and designed by Lívia
+    <div class="col-100 text-center">
+      <p>&copy; 2026 Moja stránka</p>
+    </div>
   </div>
 </footer>
 </body>

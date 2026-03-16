@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Domov';
 $pageStyles = ['css/slider.css'];
-include 'header.php';
+require_once __DIR__ . '/header.php';
 ?>
     
     <main>
@@ -53,4 +53,4 @@ include 'header.php';
     
     <script src="js/menu.js"></script>
     <script src="js/slider.js"></script>
-  <?php include 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

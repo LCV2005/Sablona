@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Q&A';
 $pageStyles = ['css/banner.css', 'css/accordion.css'];
-include 'header.php';
+require_once __DIR__ . '/header.php';
 ?>
   <main>
     <section class="banner">
@@ -17,7 +17,7 @@ include 'header.php';
       </div>
     </section>
     <section class="container">
-      <?php include "otazky.php"; ?>
+      <?php require_once __DIR__ . '/otazky.php'; ?>
       <?php for ($i = 0; $i < count($otazky); $i++) { ?>
         <div class="accordion">
           <div class="question"><?php echo htmlspecialchars($otazky[$i], ENT_QUOTES, "UTF-8"); ?></div>
@@ -28,4 +28,4 @@ include 'header.php';
   </main>
 <script src="js/accordion.js"></script>
 <script src="js/menu.js"></script>
-<?php include 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

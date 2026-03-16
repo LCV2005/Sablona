@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'Ďakujeme';
 $pageStyles = ['css/banner.css'];
-include 'header.php';
+require_once __DIR__ . '/header.php';
 ?>
     <main>
       <section class="banner">
@@ -21,4 +21,4 @@ include 'header.php';
     </main>
     
     <script src="js/menu.js"></script>
-  <?php include 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>
