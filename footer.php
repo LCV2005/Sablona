@@ -26,3 +26,5 @@
     Created and designed by Lívia
   </div>
 </footer>
+</body>
+</html>
