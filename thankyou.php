@@ -1,62 +1,59 @@
 <?php
 require_once __DIR__ . '/functions.php';
-require_once __DIR__ . '/otazky.php';
+
+// Spracovanie formulára (ak je potrebné)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Tu by bolo možné spracovať údaje z formulára
+    // Napríklad uložiť do databázy, odoslať email, atď.
+    $meno = htmlspecialchars($_POST['meno'] ?? '', ENT_QUOTES);
+    $email = htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES);
+    $sprava = htmlspecialchars($_POST['sprava'] ?? '', ENT_QUOTES);
+}
 ?>
 <!DOCTYPE html>
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q&A - Moja stránka</title>
+    <title>Ďakujeme - Moja stránka</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/accordion.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <header class="container main-header">
-    <div class="logo-holder">
-      <a href="index.php"><img src="img/logo.png" height="40"></a>
-    </div>
-    <nav class="main-nav">
-      <?php 
-          $headerMenu = getMenuData('header');
-          printMenu($headerMenu, 'main-menu');
-      ?>
-      <a class="hamburger" id="hamburger">
-        <i class="fa fa-bars"></i>
-      </a>
-    </nav>
-  </header>
-  <main>
-    <section class="banner">
-      <div class="container text-white">
-        <h1>Q&A</h1>
-      </div>
-    </section>
-    <section class="container">
-      <div class="row">
-        <div class="col-100 text-center">
-          <p><strong><em>Elit culpa id mollit irure sit. Ex ut et ea esse culpa officia ea incididunt elit velit veniam qui. Mollit deserunt culpa incididunt laborum commodo in culpa.</em></strong></p>
+    <header class="container main-header">
+        <div>
+          <a href="index.php">
+            <img src="img/logo.png" height="40">
+          </a>
         </div>
-      </div>
-    </section>
-    <section class="container">
-      <?php 
-        if (isset($otazky) && isset($odpovede)) {
-          for ($i = 0; $i < count($otazky); $i++) { 
-      ?>
-        <div class="accordion">
-          <div class="question"><?php echo htmlspecialchars($otazky[$i], ENT_QUOTES, "UTF-8"); ?></div>
-          <div class="answer"><?php echo htmlspecialchars($odpovede[$i], ENT_QUOTES, "UTF-8"); ?></div>
+      <nav class="main-nav">
+        <?php 
+            $headerMenu = getMenuData('header');
+            printMenu($headerMenu, 'main-menu');
+        ?>
+        <a class="hamburger" id="hamburger">
+            <i class="fa fa-bars"></i>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="banner">
+        <div class="container text-white">
+          <h1>Ďakujeme</h1>
         </div>
-      <?php 
-          }
-        }
-      ?>
-    </section>
-  </main>
+      </section>
+      <section class="container">
+        <div class="row">
+          <div class="col-100 text-center">
+              <h2>Ďakujeme za vyplnenie formulára</h2>
+              <p>Vaša správa bola úspešne odoslaná. Odpovieme vám čo najskôr.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
   <footer class="container bg-dark text-white">
     <div class="row">
       <div class="col-25">
@@ -85,7 +82,7 @@ require_once __DIR__ . '/otazky.php';
       Created and designed by Lívia
     </div>
   </footer>
-<script src="js/accordion.js"></script>
-<script src="js/menu.js"></script>
+
+    <script src="js/menu.js"></script>
 </body>
 </html>
