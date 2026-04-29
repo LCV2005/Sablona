@@ -2,31 +2,10 @@
 
 declare(strict_types=1);
 
-class QnA
+namespace App\Classes;
+
+class QnA extends Database
 {
-    private PDO $pdo;
-
-    public function __construct(?PDO $pdo = null)
-    {
-        if ($pdo !== null) {
-            $this->pdo = $pdo;
-            return;
-        }
-
-        $host = getenv('DB_HOST') ?: '127.0.0.1';
-        $port = getenv('DB_PORT') ?: '3306';
-        $dbName = getenv('DB_NAME') ?: 'sablona';
-        $username = getenv('DB_USER') ?: 'root';
-        $password = getenv('DB_PASS') ?: '';
-
-        $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', $host, $port, $dbName);
-
-        $this->pdo = new PDO($dsn, $username, $password, [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]);
-    }
-
     /**
      * Nacita vsetky otazky a odpovede z databazovej tabulky qna.
      *

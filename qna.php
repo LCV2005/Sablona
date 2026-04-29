@@ -1,4 +1,8 @@
 <?php
+
+use App\Classes\QnA;
+
+require_once __DIR__ . '/classes/Database.php';
 require_once __DIR__ . '/classes/QnA.php';
 
 $items = [];
